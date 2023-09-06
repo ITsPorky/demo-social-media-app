@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+class Comment extends StatelessWidget {
+  final String text;
+  final String user;
+  final String time;
+  const Comment({
+    super.key,
+    required this.text,
+    required this.time,
+    required this.user,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: BorderRadius.circular(4),
+      ),
+      margin: const EdgeInsets.only(bottom: 5),
+      padding: const EdgeInsets.all(15),
+      child: Column(
+        children: [
+          // User and Timestamp
+          Row(
+            children: [
+              Text(
+                user,
+                style: TextStyle(
+                  color: Colors.grey[600],
+                ),
+              ),
+              const Text(" - "),
+              Text(
+                time,
+                style: TextStyle(
+                  color: Colors.grey[600],
+                ),
+              )
+            ],
+          ),
+          const SizedBox(height: 10),
+          // Comment
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  text,
+                  style: TextStyle(),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
